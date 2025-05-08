@@ -58,10 +58,10 @@ def traslacion(tx, ty, tz):
 
 # --- Caso 2: Transformación de figura A a figura B ---
 
-print("Caso 2 Punto fijo: E")
+print("Caso 2 Punto fijo: C")
 
-# Primera traslación: se mueve el punto fijo E al origen
-mt1 = traslacion(3, -3, 0)
+# Primera traslación: se mueve el punto fijo C al origen
+mt1 = traslacion(1, -3, 0)
 despliega("Primera matriz de traslacion", mt1)
 
 # Escalación: se reduce el tamaño a la mitad en X y Y, y luego se duplica en Z
@@ -77,7 +77,7 @@ mr2 = rotacionY(-90)
 despliega("Matriz de rotación", mr2)
 
 # Segunda traslación: se reposiciona la figura final
-mt2 = traslacion(0, -3, 1)
+mt2 = traslacion(0, -2, 1)
 despliega("Segunda matriz de traslación", mt2)
 
 # Multiplicación de todas las matrices para obtener la matriz compuesta A -> B
@@ -94,16 +94,17 @@ puntosA = np.matrix([
     [-3, 3, -3, 1]
 ])
 
-# Aplicar la transformación a los puntos A para obtener los puntos B
+# Comprobacion de los puntos B
 puntosB = puntosA * mab
-despliega("PuntosB", puntosB)
+despliega("Puntos B", puntosB)
 
 # --- Código del Caso 2: Transformación inversa de figura B a figura A ---
 
-print("Transformamos de figura B a figura A usando el punto fijo a")
+print("Transformamos de figura B a figura A usando el punto fijo C")
 
-# Primera traslación: mueve el punto fijo A al origen
-mt1B = traslacion(-6, 2, 1)
+# Primera traslación: mueve el punto fijo C de B al origen
+# Punto C de B es (0, -2, 1)
+mt1B = traslacion(0, 2, -1)
 despliega("Primer matriz de traslacion", mt1B)
 
 # Rotación en Y 90°: deshace la rotación Y
@@ -119,14 +120,15 @@ meB = escalacion(2, 2, 1/2)
 despliega("Matriz de escalacion", meB)
 
 # Segunda traslación: reposiciona la figura A
-mt2B = traslacion(-1, 7, -3)
+# Punto C de A es (-1, 3, 0)
+mt2B = traslacion(-1, 3, 0)
 despliega("Segunda matriz de traslación", mt2B)
 
 # Multiplicación de todas las matrices para obtener la transformación inversa B -> A
 mba = mt1B * mrB * mr2B * meB * mt2B
 despliega("Matriz de transformación compuesta", mba)
 
-# Definición de los puntos de la figura B
+# Matriz figura b
 puntosB2 = np.matrix([
     [6, -2, -1, 1],
     [0, -2, -1, 1],
@@ -136,6 +138,6 @@ puntosB2 = np.matrix([
     [6, -3, 1, 1]
 ])
 
-# Aplicar la transformación inversa a los puntos B para recuperar los puntos A
+# Comprobacion de los puntos A
 puntos = puntosB2 * mba
-despliega("PuntosB", puntos)
+despliega("Puntos A", puntos)

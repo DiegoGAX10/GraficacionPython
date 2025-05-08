@@ -16,15 +16,15 @@ light_source {<4,5,-6> color White}
 #declare pf = <-3, 3, -3>;
 
 
-#declare ObjetoA =union{      
+#declare ObjetoA =union{
 triangle {pa,pb,pe pigment {color Yellow}}
 triangle {pc,pd,pf pigment {color Yellow}}
 // parte adef
 triangle {pa,pd,pe pigment {color Blue}}
-triangle {pe,pf,pd pigment {color Blue}} 
+triangle {pe,pf,pd pigment {color Blue}}
 // parte abcd
 triangle {pa,pb,pd pigment {color Green}}
-triangle {pb,pc,pd pigment {color Green}}  
+triangle {pb,pc,pd pigment {color Green}}
 // parte bcef
 triangle {pb,pc,pf pigment {color Red}}
 triangle {pb,pe,pf pigment {color Red}}
@@ -41,10 +41,10 @@ object{
 ObjetoA
 
 matrix <
-0, 1, 0,
--0.5, 0, 0,
-0, 0, -2,
-3, -3, 1
+0, 0.5, 0,
+0, 0, -0.5,
+-2, 0, 0,
+0, -1.5, 2.5
 >
 
 }
