@@ -98,11 +98,12 @@ def vector(x, y, z):
 # EJERCICIO 1 - Transformar Figura A a Figura B
 # ------------------------------------------------------
 
-print("Punto fijo: e")
+print("Punto c")
 
 #Primera traslación
-traslacion1 = traslacion(10, -2, 7)
-mostrar("Primera matriz de traslación", traslacion1)
+traslacion1 = traslacion(0, -11, 3)
+
+mostrar("Primera matriz de traslación (punto c)", traslacion1)
 
 #Escalación
 escala = escalacion(1/2, 1/3, 1/2)
@@ -113,12 +114,12 @@ rotacion = rotacionY(90)
 mostrar("Matriz de rotación", rotacion)
 
 #Segunda traslación
-traslacion2 = traslacion(2, 1, 6)
-mostrar("Segunda matriz de traslación", traslacion2)
+traslacion2 = traslacion(4, 4, 1)
+mostrar("Segunda matriz de traslación (punto c)", traslacion2)
 
 #Matriz de transformación compuesta A → B
 matriz_AaB = traslacion1 * escala * rotacion * traslacion2
-mostrar("Matriz de transformación compuesta (A a B)", matriz_AaB)
+mostrar("Matriz de transformación compuesta (A a B respecto al punto c)", matriz_AaB)
 
 # Puntos de la Figura A
 puntosA = np.matrix([
@@ -132,16 +133,16 @@ puntosA = np.matrix([
 
 # Aplicar la transformación a los puntos de A
 puntosB = puntosA * matriz_AaB
-mostrar("Puntos B obtenidos", puntosB)
+mostrar("Comprobacion de Puntos B obtenidos", puntosB)
 
 # ------------------------------------------------------
 # EJERCICIO 2 - Transformar Figura B a Figura A
 # ------------------------------------------------------
 
-print("Transformando de Figura B a Figura A usando el punto fijo: a")
+print("Transformando de Figura B a Figura A usando el punto c como referencia")
 
 #Primera traslación
-traslacion1B = traslacion(-2, -1, -1)
+traslacion1B = traslacion(-4, -4, -1)
 mostrar("Primera matriz de traslación", traslacion1B)
 
 #Escalación inversa
@@ -153,7 +154,7 @@ rotacionB = rotacionY(-90)
 mostrar("Matriz de rotación", rotacionB)
 
 #Segunda traslación
-traslacion2B = traslacion(0, 2, -7)
+traslacion2B = traslacion(0, 11, -3)
 mostrar("Segunda matriz de traslación", traslacion2B)
 
 #Matriz de transformación compuesta B → A
@@ -172,7 +173,7 @@ puntosB2 = np.matrix([
 
 # Aplicar la transformación inversa a los puntos de B
 puntosA2 = puntosB2 * matriz_BaA
-mostrar("Puntos A recuperados", puntosA2)
+mostrar("Comprobacion de puntos A obtenidos", puntosA2)
 
 # ------------------------------------------------------
 # EJERCICIO 3 - Comprobación de Inversas
